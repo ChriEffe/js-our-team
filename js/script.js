@@ -38,6 +38,33 @@ const teamContainer = document.querySelector('.team-container');
 const cardsContainer = document.querySelector('.team-card');
 newCards(team, teamContainer);
 
+// selezioni input dal DOM
+const addMemberButton = document.getElementById('addMemberButton');
+const inputName = document.getElementById('name');
+const inputRole = document.getElementById('role');
+const inputImage = document.getElementById('image');
+
+addMemberButton.addEventListener('click', function (event) {
+  event.preventDefault(); //per non far refreshare la pagina
+
+  const memberName = inputName.value;
+  const memberRole = inputRole.value;
+  const memberImage = inputImage.value;
+
+  if (memberName.length > 0 && memberRole.length > 0) {
+    const info = {
+      name: memberName,
+      role: memberRole,
+      image: memberImage
+    };
+    team.push(info);
+
+    newCards(team, teamContainer);
+  } else {
+    console.log('Dati errati');
+  }
+})
+
 
 
 // funzione per stampare cards
