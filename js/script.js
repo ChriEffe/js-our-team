@@ -31,18 +31,21 @@ const team = [
   },
 ];
 
+
 const teamContainer = document.querySelector('.team-container');
 
 // stampo cards
 const cardsContainer = document.querySelector('.team-card');
-printCards(team, teamContainer);
+newCards(team, teamContainer);
+
+
 
 // funzione per stampare cards
-function printCards(array, container) {
+function newCards(array, container) {
   container.innerHTML = '';
   for (let i = 0; i < array.length; i++) {
     const element = array[i];
-    
+
     const cardsDom = `
     <div class="team-card">
             <div class="card-image">
@@ -57,6 +60,6 @@ function printCards(array, container) {
             </div>
           </div>`
 
-            container.innerHTML += cardsDom;
+    container.innerHTML += cardsDom;
   }
 }
